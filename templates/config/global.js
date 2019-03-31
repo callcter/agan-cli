@@ -25,10 +25,10 @@ global.headers = {
 }
 
 // Fetch 封装，log 中显示 fetch详情
-global._fetch = fetch
-global.fetch = function (uri, options, ...args) {
+global.__fetch = fetch
+global._fetch = function (uri, options, ...args) {
   options = Object.assign({},options,{headers:global.headers})
-  return global._fetch(uri, options, ...args).then((response) =>{
+  return global.__fetch(uri, options, ...args).then((response) =>{
     if(__DEV__){ console.info('Request', {uri, options, ...args}, (new Date()).toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'})) }
     return response.json()
   }).then(resJson => {

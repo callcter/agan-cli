@@ -3,7 +3,7 @@ import { LOAD_DATA, LOAD_DATA_ERROR } from './type'
 export function loadData(){
   return (dispatch, getState) => {
     let url = ''
-    fetch(url, {
+    _fetch(url, {
       method: 'get',
       headers: {}
     }).then(resJson => {
