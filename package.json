@@ -20,5 +20,9 @@
     "inquirer": "^6.2.2",
     "ora": "^3.2.0",
     "shelljs": "^0.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callcter/agan-cli.git"
   }
 }
