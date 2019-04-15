@@ -34,10 +34,10 @@ class ReduxNavigation extends React.Component {
     NetInfo.removeEventListener('connectionChange')
   }
   render(){
-    const { dispatch, state } = this.props
+    const { dispatch, nav } = this.props
     return (
       <View style={{flex: 1, position: 'relative'}}>
-        <AppNavigatorWithRedux dispatch={dispatch} state={state} />
+        <AppNavigatorWithRedux dispatch={dispatch} state={nav} />
       </View>
     )
   }
@@ -60,7 +60,7 @@ class ReduxNavigation extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.nav
+    nav: state.nav
   }
 }
 
