@@ -10,7 +10,7 @@ import thunk from 'redux-thunk'
 import reducers from './src/reducers'
 import AppNavigator from './src/routes/AppNavigator'
 
-const lastBackPressed = Date.now()
+let lastBackPressed = Date.now()
 const navMiddleware = createReactNavigationReduxMiddleware(state => state.nav)
 const AppNavigatorWithRedux = createReduxContainer(AppNavigator)
 
@@ -34,10 +34,10 @@ class ReduxNavigation extends React.Component {
     NetInfo.removeEventListener('connectionChange')
   }
   render(){
-    const { dispatch, state } = this.props
+    const { dispatch, nav } = this.props
     return (
       <View style={{flex: 1, position: 'relative'}}>
-        <AppNavigatorWithRedux dispatch={dispatch} state={state} />
+        <AppNavigatorWithRedux dispatch={dispatch} state={nav} />
       </View>
     )
   }
@@ -60,7 +60,7 @@ class ReduxNavigation extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.nav
+    nav: state.nav
   }
 }
 
